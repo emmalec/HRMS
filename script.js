@@ -28,7 +28,7 @@ formularioEmpleado.addEventListener("submit", storageEmpleado);
 function storageEmpleado() {
   //declaro array que se ejecuta con la funcion
   let empleados = [];
-  //obtiene por key "empleado" el array vacio
+  //obtiene por key "empleado" y lo parsea o el array vacio - si no hago esto en el refresh me hace clear del local
   empleados = JSON.parse(localStorage.getItem("empleado")) || [];
   //pushea el objeto creado al array "empleados"
   empleados.push(
@@ -44,7 +44,6 @@ function storageEmpleado() {
   );
   //setea el objeto creado con el key "empleado" dentro del array "empleados"
   localStorage.setItem("empleado", JSON.stringify(empleados));
-  //return empleados;
 }
 
 //Render table con boton mostrarlista
