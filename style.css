@@ -1,0 +1,23 @@
+.navbar {
+  height: 100vh !important;
+}
+
+#tableContainer {
+  padding-top: 0.5rem;
+}
+
+.modalContainer {
+  margin-top: 1.5rem;
+}
+
+.titleLucida {
+  font-family: monospace;
+  font-size: xx-large;
+  line-height: normal;
+  font-weight: 700;
+  color: #6c757d !important;
+}
+
+.nav-link:hover {
+  color: blue !important;
+}
