@@ -26,9 +26,11 @@ let formularioEmpleado = document.getElementById("formEmp");
 formularioEmpleado.addEventListener("submit", storageEmpleado);
 
 function storageEmpleado() {
-  //declaro array
+  //declaro array que se ejecuta con la funcion
   let empleados = [];
+  //obtiene por key "empleado" el array vacio
   empleados = JSON.parse(localStorage.getItem("empleado")) || [];
+  //pushea el objeto creado al array "empleados"
   empleados.push(
     new Empleado(
       IDform.value,
@@ -40,9 +42,9 @@ function storageEmpleado() {
       suelForm.value
     )
   );
+  //setea el objeto creado con el key "empleado" dentro del array "empleados"
   localStorage.setItem("empleado", JSON.stringify(empleados));
-  //el test no se ve por el refresh del submit
-  console.log(empleados);
+  //return empleados;
 }
 
 //Render table con boton mostrarlista
@@ -54,8 +56,9 @@ let mostrarListaSidebar = document.getElementById("mostrarEmpleados");
 mostrarListaSidebar.addEventListener("click", renderEmpleados);
 
 function renderEmpleados() {
-  let empleados = [];
-  empleados = JSON.parse(localStorage.getItem("empleado"));
+  //traigo el array desde el localStorage por la key "empleado"
+  let empleados = JSON.parse(localStorage.getItem("empleado"));
+  // borra todo contenido anterior a que se ejecute el for, para que no traiga toda la table
   tableBody.innerHTML = "";
   for (const empleado of empleados) {
     let row = document.createElement("tr");
