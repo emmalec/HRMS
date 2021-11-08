@@ -17,16 +17,18 @@ class Empleado {
     this.email = email;
     this.sueldoBasico = sueldoBasico;
   }
-  //calcular edad
-  /* calcularEdad() {
-    let ageDifMs = Date.now() - this.fechaNacimiento;
-    let ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
+
+  calcularEdad(fechaNacimiento) {
+    let today = new Date();
+    let birthDate = new Date(fechaNacimiento);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
   }
-  calcularEdad() {
-    let date = new Date.now();
-    return date.getFullYear() - this.fechaNacimiento;
-  } */
+
   concatenarNombre() {
     return this.nombre + this.apellido;
   }
@@ -69,6 +71,7 @@ mostrarListaSidebar.addEventListener("click", renderEmpleados);
 function renderEmpleados() {
   //traigo el array desde el localStorage por la key "empleado"
   let empleados = JSON.parse(localStorage.getItem("empleado"));
+  //mapeo el array para convertiro a la class Empleado y poder usar metodos
   let empleadosMap = empleados.map(
     (empleado) =>
       new Empleado(
@@ -96,7 +99,7 @@ function renderEmpleados() {
     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
     </svg></td>`;
     tableBody.appendChild(row);
-    console.log(empleado.concatenarNombre());
+    console.log(empleado.calcularEdad(empleado.fechaNacimiento));
   }
 }
 
