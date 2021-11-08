@@ -17,7 +17,7 @@ class Empleado {
     this.email = email;
     this.sueldoBasico = sueldoBasico;
   }
-
+  //Method para calcular años
   calcularAnios(anioInicio) {
     let today = new Date();
     let fechaInicio = new Date(anioInicio);
