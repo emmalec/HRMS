@@ -105,8 +105,8 @@ let tableHead = document.createElement("thead");
 tableHead.innerHTML = `<th>#id</th>
 <th>Nombre</th>
 <th>Apellido</th>
-<th>Fecha nacimiento</th>
-<th>Fecha ingreso</th>
+<th>Edad</th>
+<th>Antiguedad</th>
 <th>e-mail</th>
 <th>Sueldo Basico</th>
 <th>Delete</th>`;
