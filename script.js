@@ -59,6 +59,15 @@ let mostrarListaSidebar = document.getElementById("mostrarEmpleados");
 mostrarListaSidebar.addEventListener("click", renderEmpleados);
 
 function renderEmpleados() {
+  //table head
+  tableHead.innerHTML = `<th>#id</th>
+  <th>Nombre</th>
+  <th>Apellido</th>
+  <th>Edad</th>
+  <th>Antiguedad</th>
+  <th>e-mail</th>
+  <th>Sueldo Basico</th>
+  <th>Delete</th>`;
   //traigo el array desde el localStorage por la key "empleado"
   let empleados = JSON.parse(localStorage.getItem("empleado"));
   //mapeo el array para convertiro a la class Empleado y poder usar metodos
@@ -98,18 +107,8 @@ function renderEmpleados() {
 
 let table = document.createElement("table");
 let tableBody = document.createElement("tbody");
-table.setAttribute("class", "table table-hover");
-
-//Armando el header
 let tableHead = document.createElement("thead");
-tableHead.innerHTML = `<th>#id</th>
-<th>Nombre</th>
-<th>Apellido</th>
-<th>Edad</th>
-<th>Antiguedad</th>
-<th>e-mail</th>
-<th>Sueldo Basico</th>
-<th>Delete</th>`;
+table.setAttribute("class", "table table-hover");
 
 table.appendChild(tableBody);
 table.appendChild(tableHead);
