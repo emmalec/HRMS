@@ -34,7 +34,7 @@ function storageEmpleado() {
   let empleados = [];
   //obtiene por key "empleado" y lo parsea o el array vacio - si no hago esto en el refresh me hace clear del localStorage
   empleados = JSON.parse(localStorage.getItem("empleado")) || [];
-  //pushea el objeto creado al array "empleados"
+  //pushea el objeto instanciado al array "empleados"
   empleados.push(
     new Empleado(
       IDform.value,
@@ -59,6 +59,7 @@ let mostrarListaSidebar = document.getElementById("mostrarEmpleados");
 mostrarListaSidebar.addEventListener("click", renderEmpleados);
 
 function renderEmpleados() {
+  tableContainer.setAttribute("class", "d-block");
   //table head
   tableHead.innerHTML = `<th>#id</th>
   <th>Nombre</th>
@@ -85,9 +86,11 @@ function renderEmpleados() {
   );
   // borra todo contenido anterior a que se ejecute el for, para que no traiga toda la table
   tableBody.innerHTML = "";
+  //for...of que recorre el array de mapeado de empleados
   for (const empleado of empleadosMap) {
     let edadEmpleado = empleado.calcularAnios(empleado.fechaNacimiento);
     let antiguedadEmpleado = empleado.calcularAnios(empleado.fechaIngreso);
+
     let row = document.createElement("tr");
     row.innerHTML = `<td> ${empleado.id}</td>
     <td>${empleado.nombre}</td>
@@ -103,7 +106,7 @@ function renderEmpleados() {
   }
 }
 
-//DOM
+//DOM table
 
 let table = document.createElement("table");
 let tableBody = document.createElement("tbody");
@@ -113,6 +116,51 @@ table.setAttribute("class", "table table-hover");
 table.appendChild(tableBody);
 table.appendChild(tableHead);
 document.getElementById("tableContainer").appendChild(table);
+
+//DOM cards con JQuery
+
+function getEmpleado() {
+  //traigo el array desde el localStorage por la key "empleado"
+  let empleados = JSON.parse(localStorage.getItem("empleado"));
+  //mapeo el array para convertiro a la class Empleado y poder usar metodos
+  let empleadosMap = empleados.map(
+    (empleado) =>
+      new Empleado(
+        empleado.id,
+        empleado.nombre,
+        empleado.apellido,
+        empleado.fechaIngreso,
+        empleado.fechaNacimiento,
+        empleado.email,
+        empleado.sueldoBasico
+      )
+  );
+  return empleadosMap;
+}
+
+//document ready para asegurarnos que el DOM esta listo
+$(document).ready(function () {
+  //se carga solo
+  //renderEmpleados();
+  console.log("DOM ready!");
+});
+
+$("#mostrarCards").on("click", () => {
+  $("#tableContainer").addClass("d-none");
+  empleadosCard = getEmpleado();
+
+  for (const empleado of empleadosCard) {
+    $("#cardsContainer").append(`<div class="col-lg-2">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${empleado.nombre} ${empleado.apellido}</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>`);
+  }
+});
 
 //Clear el localStorage
 
