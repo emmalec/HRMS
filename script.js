@@ -59,7 +59,12 @@ let mostrarListaSidebar = document.getElementById("mostrarEmpleados");
 mostrarListaSidebar.addEventListener("click", renderEmpleados);
 
 function renderEmpleados() {
+  //para mostrar la table
   tableContainer.setAttribute("class", "d-block");
+  //para esconder las cards
+  //let cardsEmpleados = document.getElementById("cardsContainer");
+  //cardsEmpleados.setAttribute("class", "d-none");
+
   //table head
   tableHead.innerHTML = `<th>#id</th>
   <th>Nombre</th>
@@ -147,18 +152,35 @@ $(document).ready(function () {
 
 $("#mostrarCards").on("click", () => {
   $("#tableContainer").addClass("d-none");
-  empleadosCard = getEmpleado();
+  let empleadosCard = getEmpleado();
 
   for (const empleado of empleadosCard) {
-    $("#cardsContainer").append(`<div class="col-lg-2">
+    let edadEmpleado = empleado.calcularAnios(empleado.fechaNacimiento);
+    let antiguedadEmpleado = empleado.calcularAnios(empleado.fechaIngreso);
+
+    $("#cardsContainer").append(`<div class="col-lg-2 pb-3">
     <div class="card">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://media.istockphoto.com/vectors/missing-image-of-a-person-placeholder-vector-id1288129985?k=20&m=1288129985&s=612x612&w=0&h=OHfZHfKj0oqIDMl5f_oRqH13MHiB63nUmySYILbWbjE=" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${empleado.nombre} ${empleado.apellido}</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"> Edad: ${edadEmpleado}</p>
+        <p class="card-text"> Antiguedad: ${antiguedadEmpleado}</p>
       </div>
     </div>
   </div>`);
+  }
+});
+
+//Bootstrap toast para cuando cargamos un empleado - no me funciona con el refresh del submit
+
+$(document).ready(function () {
+  let toastLiveExample = document.getElementById("liveToast");
+  if (formularioEmpleado) {
+    formularioEmpleado.addEventListener("submit", function () {
+      var toast = new bootstrap.Toast(toastLiveExample);
+
+      toast.show();
+    });
   }
 });
 

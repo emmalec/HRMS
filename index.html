@@ -17,8 +17,16 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- trigger modal empleado nuevo -->
+            <button type="button" class="btn btn-success mb-4 mt-4" data-bs-toggle="modal" data-bs-target="#modalNewEmpleado"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+              <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+            </svg> Nuevo colaborador</button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav d-flex flex-column">
+                <li class="nav-item d-flex flex-row align-items-center">
+                  <span>&#127968;</span><a id="dashboard" class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                </li>
                 <li class="nav-item d-flex flex-row align-items-center">
                   <span>&#x1F477;</span><a id="mostrarEmpleados" class="nav-link active" aria-current="page" href="#">Empleados</a>
                 </li>
@@ -31,13 +39,21 @@
           </div>
         </nav>
         <div class="winRContainer col-lg">
+          <!-- Bootstrap toast -->
+          <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Hello, world! This is a toast message.
+              </div>
+            </div>
+          </div>
           <div class="modalContainer">
-            <!-- trigger modal empleado nuevo -->
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNewEmpleado"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-              <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-              <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-            </svg> Nuevo colaborador</button>
-            <button id="clrLocalStorage" type="button" class="btn btn-danger">Borrar localStorage</button>
             <button id="mostrarLista" type="button" class="btn btn-info">Mostrar lista</button>
             <button id="mostrarCards" type="button" class="btn btn-info">Mostrar cards</button>
             <!-- Modal empleado nuevo-->
@@ -102,6 +118,7 @@
                   </div>
                   <div class="modal-body">
                     <h4 class="py-4"> ¡Estamos configurando la configuración!</h4>
+                    <button id="clrLocalStorage" type="button" class="btn btn-danger">Borrar localStorage</button>
                   </div>
                 </div>
               </div>
