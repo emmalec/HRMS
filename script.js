@@ -151,9 +151,6 @@ function getEmpleado() {
 
 //document ready para asegurarnos que el DOM esta listo
 $(document).ready(function () {
-  //se carga solo
-  //renderEmpleados();
-
   $("#mostrarCards").on("click", () => {
     //$("#tableContainer").addClass("d-none");
     let empleadosCard = getEmpleado();
@@ -184,16 +181,14 @@ $(document).ready(function () {
 
 //Mostrar empleados JQUery sidebar
 
-$("#mostrarEmpleados").on("click", function () {
-  //para esconder las cards
-  //$("#cardsContainer").addClass("d-none");
-
+$("#mostrarEmpleados, #mostrarLista").on("click", function () {
   $("#globalContainer")
     .empty()
     .append(
       "<table id='tableSide' class='table table-hover'><tbody id='tb'></tbody></table>"
     );
 
+  //armando el header de la table
   $("#tableSide").prepend(`<thead><th>#id</th>
   <th>Nombre</th>
   <th>Apellido</th>
