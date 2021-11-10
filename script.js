@@ -48,6 +48,7 @@ function storageEmpleado() {
   );
   //setea el objeto creado con el key "empleado" dentro del array "empleados"
   localStorage.setItem("empleado", JSON.stringify(empleados));
+  sessionStorage.setItem("success", true);
 }
 
 //Render table con boton mostrarlista
@@ -147,28 +148,29 @@ function getEmpleado() {
 $(document).ready(function () {
   //se carga solo
   //renderEmpleados();
-  console.log("DOM ready!");
-});
 
-$("#mostrarCards").on("click", () => {
-  $("#tableContainer").addClass("d-none");
-  let empleadosCard = getEmpleado();
+  $("#mostrarCards").on("click", () => {
+    $("#tableContainer").addClass("d-none");
+    let empleadosCard = getEmpleado();
 
-  for (const empleado of empleadosCard) {
-    let edadEmpleado = empleado.calcularAnios(empleado.fechaNacimiento);
-    let antiguedadEmpleado = empleado.calcularAnios(empleado.fechaIngreso);
+    for (const empleado of empleadosCard) {
+      let edadEmpleado = empleado.calcularAnios(empleado.fechaNacimiento);
+      let antiguedadEmpleado = empleado.calcularAnios(empleado.fechaIngreso);
 
-    $("#cardsContainer").append(`<div class="col-lg-2 pb-3">
-    <div class="card">
-      <img src="https://media.istockphoto.com/vectors/missing-image-of-a-person-placeholder-vector-id1288129985?k=20&m=1288129985&s=612x612&w=0&h=OHfZHfKj0oqIDMl5f_oRqH13MHiB63nUmySYILbWbjE=" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${empleado.nombre} ${empleado.apellido}</h5>
-        <p class="card-text"> Edad: ${edadEmpleado}</p>
-        <p class="card-text"> Antiguedad: ${antiguedadEmpleado}</p>
+      $("#cardsContainer").append(`<div class="col-lg-2 pb-3">
+      <div class="card">
+        <img src="https://media.istockphoto.com/vectors/missing-image-of-a-person-placeholder-vector-id1288129985?k=20&m=1288129985&s=612x612&w=0&h=OHfZHfKj0oqIDMl5f_oRqH13MHiB63nUmySYILbWbjE=" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${empleado.nombre} ${empleado.apellido}</h5>
+          <p class="card-text"> Edad: ${edadEmpleado}</p>
+          <p class="card-text"> Antiguedad: ${antiguedadEmpleado}</p>
+        </div>
       </div>
-    </div>
-  </div>`);
-  }
+    </div>`);
+    }
+  });
+
+  console.log("DOM ready!");
 });
 
 //Bootstrap toast para cuando cargamos un empleado - no me funciona con el refresh del submit
