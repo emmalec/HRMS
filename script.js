@@ -77,11 +77,10 @@ function getEmpleado() {
 //document ready para asegurarnos que el DOM esta listo
 $(document).ready(function () {
   $("#mostrarCards").on("click", () => {
-    //$("#tableContainer").addClass("d-none");
     let empleadosCard = getEmpleado();
 
     $("#globalContainer")
-      .empty()
+      .empty() //para borrar el contenido de globalContainer
       .append(`<div id="globalContainer_cards" class="row"></div>`);
 
     for (const empleado of empleadosCard) {
