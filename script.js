@@ -164,7 +164,7 @@ $(document).ready(function () {
       let antiguedadEmpleado = empleado.calcularAnios(empleado.fechaIngreso);
 
       $("#globalContainer_cards").append(`<div class="col-lg-2 pb-3">
-      <div class="card">
+      <div class="shadow-sm card">
         <img src="https://media.istockphoto.com/vectors/missing-image-of-a-person-placeholder-vector-id1288129985?k=20&m=1288129985&s=612x612&w=0&h=OHfZHfKj0oqIDMl5f_oRqH13MHiB63nUmySYILbWbjE=" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${empleado.nombre} ${empleado.apellido}</h5>
