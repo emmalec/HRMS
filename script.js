@@ -103,7 +103,7 @@ $(document).ready(function () {
   console.log("DOM ready!");
 });
 
-//Mostrar empleados JQUery sidebar
+//Mostrar empleados JQuery sidebar y boton
 
 $("#mostrarEmpleados, #mostrarLista").on("click", function () {
   $("#globalContainer")
