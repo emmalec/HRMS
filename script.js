@@ -119,21 +119,23 @@ $(document).ready(function () {
       <th>Sueldo Basico</th>
       <th>Delete</th></thead>`);
 
-    let empleadosTable = getEmpleado();
+    function mostrarLista() {
+      let empleadosTable = getEmpleado();
 
-    for (const empleado of empleadosTable) {
-      let edadEmpleado = empleado.calcularAnios(empleado.fechaNacimiento);
-      let antiguedadEmpleado = empleado.calcularAnios(empleado.fechaIngreso);
+      for (const empleado of empleadosTable) {
+        let edadEmpleado = empleado.calcularAnios(empleado.fechaNacimiento);
+        let antiguedadEmpleado = empleado.calcularAnios(empleado.fechaIngreso);
 
-      $("#tb").append(`<tr><td> ${empleado.id}</td>
-        <td>${empleado.nombre}</td>
-        <td>${empleado.apellido}</td>
-        <td>${edadEmpleado} años</td>
-        <td>${antiguedadEmpleado} años</td>
-        <td>${empleado.email}</td>
-        <td>${empleado.sueldoBasico}</td>
-        <td><button type="button" id="deleteEmpleado${empleado.id}" class="btn btn-danger deleteEmpleado">Delete<i class="far fa-trash-alt"></i></button>
-        </td></tr>`);
+        $("#tb").append(`<tr><td> ${empleado.id}</td>
+          <td>${empleado.nombre}</td>
+          <td>${empleado.apellido}</td>
+          <td>${edadEmpleado} años</td>
+          <td>${antiguedadEmpleado} años</td>
+          <td>${empleado.email}</td>
+          <td>${empleado.sueldoBasico}</td>
+          <td><button type="button" id="deleteEmpleado${empleado.id}" class="btn btn-danger deleteEmpleado">Delete<i class="far fa-trash-alt"></i></button>
+          </td></tr>`);
+      }
     }
     //Delete empleado Jquery
 
@@ -143,10 +145,17 @@ $(document).ready(function () {
 
       for (const empleado of empleados) {
         $(`#deleteEmpleado${empleado.id}`).on("click", function () {
-          console.log("boton!");
+          console.log(`Empleado ${empleado.id}`);
+          //eliminamos el value asicoado al id
+          empleados.splice(empleado, 1);
+          //update del localStorage
+          localStorage.setItem("empleado", JSON.stringify(empleados));
+          //para refresh
+          location.reload();
         });
       }
     }
+    mostrarLista();
     deleteEmpleado();
   });
 });
