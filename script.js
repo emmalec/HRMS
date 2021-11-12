@@ -135,25 +135,25 @@ $(document).ready(function () {
         <td><button type="button" id="deleteEmpleado${empleado.id}" class="btn btn-danger deleteEmpleado">Delete<i class="far fa-trash-alt"></i></button>
         </td></tr>`);
     }
+    //Delete empleado Jquery
+
+    function deleteEmpleado() {
+      let empleados = JSON.parse(localStorage.getItem("empleado"));
+      console.log("esto funciona!");
+
+      for (const empleado of empleados) {
+        $(`#deleteEmpleado${empleado.id}`).on("click", function () {
+          console.log("boton!");
+        });
+      }
+    }
+    deleteEmpleado();
   });
 });
 
-//Delete empleado Jquery
-
-function deleteEmpleado() {
-  let empleados = JSON.parse(localStorage.getItem("empleado"));
-  console.log("esto funciona!");
-
-  for (const empleado of empleados) {
-    $(`#deleteEmpleado${empleado.id}`).on("click", function () {
-      console.log("boton!");
-    });
-  }
-}
-
 //Delete empleado Vanilla
 
-document.addEventListener("DOMContentLoaded", function (event) {
+/* document.addEventListener("DOMContentLoaded", function (event) {
   function deleteEmpleadoVan() {
     let empleados = JSON.parse(localStorage.getItem("empleado"));
 
@@ -169,9 +169,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   console.log("DOM ready");
   deleteEmpleadoVan();
-});
-
-deleteEmpleado();
+}); */
 
 //Clear el localStorage
 
