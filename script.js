@@ -86,8 +86,8 @@ $("#mostrarCards").on("click", () => {
     let edadEmpleado = empleado.calcularAnios(empleado.fechaNacimiento);
     let antiguedadEmpleado = empleado.calcularAnios(empleado.fechaIngreso);
 
-    $("#globalContainer_cards").append(`<div class="col-lg-2 pb-3">
-      <div class="shadow-sm card">
+    $("#globalContainer_cards").append(`<div class="col-lg-2 pb-3 card-group">
+      <div class="card">
         <img src="https://media.istockphoto.com/vectors/missing-image-of-a-person-placeholder-vector-id1288129985?k=20&m=1288129985&s=612x612&w=0&h=OHfZHfKj0oqIDMl5f_oRqH13MHiB63nUmySYILbWbjE=" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${empleado.nombre} ${empleado.apellido}</h5>
@@ -97,6 +97,12 @@ $("#mostrarCards").on("click", () => {
       </div>
     </div>`);
   }
+
+  //CARD ANIMATION
+
+  $(".card").slideDown(200, function () {
+    $(this).slideUp(0).slideDown(300).toggleClass("shadow-sm");
+  });
 });
 
 //Mostrar empleados JQuery sidebar y boton
@@ -137,6 +143,7 @@ $(document).ready(function () {
           </td></tr>`);
       }
     }
+
     //Delete empleado Jquery
 
     function deleteEmpleado() {
