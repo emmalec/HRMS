@@ -1,0 +1,92 @@
+[
+  {
+    "id": "22",
+    "nombre": "Jorge",
+    "apellido": "Gomez",
+    "fechaIngreso": "2012-06-06",
+    "fechaNacimiento": "1985-06-04",
+    "email": "jorgomez@gmail.com",
+    "sueldoBasico": "90000"
+  },
+  {
+    "id": "51",
+    "nombre": "Pablo",
+    "apellido": "Perez",
+    "fechaIngreso": "2017-09-04",
+    "fechaNacimiento": "1989-05-09",
+    "email": "pperez@hotmail.com",
+    "sueldoBasico": "80000"
+  },
+  {
+    "id": "98",
+    "nombre": "Julia",
+    "apellido": "Gonzalez",
+    "fechaIngreso": "2019-04-05",
+    "fechaNacimiento": "1992-08-06",
+    "email": "jgonz@outlook.com",
+    "sueldoBasico": "75000"
+  },
+  {
+    "id": "121",
+    "nombre": "Julieta",
+    "apellido": "Garcia",
+    "fechaIngreso": "2020-06-06",
+    "fechaNacimiento": "1999-02-04",
+    "email": "juligarcia@gmail.com",
+    "sueldoBasico": "70000"
+  },
+  {
+    "id": "64",
+    "nombre": "Julian",
+    "apellido": "West",
+    "fechaIngreso": "2012-03-28",
+    "fechaNacimiento": "1979-06-04",
+    "email": "jwest@icloud.com",
+    "sueldoBasico": "100000"
+  },
+  {
+    "id": "95",
+    "nombre": "Nahuel",
+    "apellido": "Goya",
+    "fechaIngreso": "2017-11-24",
+    "fechaNacimiento": "1988-11-27",
+    "email": "Nahugoya@hotmail.com",
+    "sueldoBasico": "90000"
+  },
+  {
+    "id": "102",
+    "nombre": "Juan Pablo",
+    "apellido": "Pepper",
+    "fechaIngreso": "2006-06-05",
+    "fechaNacimiento": "1991-04-24",
+    "email": "pepperJ@gmail.com",
+    "sueldoBasico": "105000"
+  },
+  {
+    "id": "111",
+    "nombre": "Genaro",
+    "apellido": "Ruiz",
+    "fechaIngreso": "2017-01-09",
+    "fechaNacimiento": "1995-05-09",
+    "email": "genaruiz@gmail.com",
+    "sueldoBasico": "79000"
+  },
+  {
+    "id": "20",
+    "nombre": "Emilia",
+    "apellido": "Vincent",
+    "fechaIngreso": "2015-01-09",
+    "fechaNacimiento": "1984-03-16",
+    "email": "emivin@gmail.com",
+    "sueldoBasico": "110500"
+  },
+  {
+    "id": "115",
+    "nombre": "Franco",
+    "apellido": "Marquez",
+    "fechaIngreso": "2016-09-06",
+    "fechaNacimiento": "1990-09-02",
+    "email": "fmarquez@gmail.com",
+    "sueldoBasico": "94000"
+  }
+]

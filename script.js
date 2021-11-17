@@ -53,7 +53,7 @@ function storageEmpleado() {
   sessionStorage.setItem("success", true);
 }
 
-//GET EMPLEADO LOCALSTORAGE
+//GET EMPLEADO LOCALSTORAGE & MAP TO CLASS Empleado
 
 function getEmpleado() {
   //traigo el array desde el localStorage por la key "empleado"
@@ -74,9 +74,36 @@ function getEmpleado() {
   return empleadosMap;
 }
 
+//Traigo empleados desde el empleados.JSON con AJAX
+
+$("#getEmpleadoDB").click(() => {
+  //cambiar a success el btn
+  $("#getEmpleadoDB").removeClass("btn-primary").addClass("btn-success");
+
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "empleados.json",
+    success: function (data) {
+      console.log("funciona funcion axaj DB");
+      localStorage.setItem("empleado", JSON.stringify(data));
+    },
+  });
+});
+
 //AJAX & JQuery
 
 $("#dashboard").on("click", () => {
+  $("#banner")
+    .empty()
+    .prepend(
+      `<div id="bannerDashboard">
+      <div class="py-4">
+        <p class="fs-1">Dashboard</p>
+      </div>
+    </div>`
+    );
+
   $("#globalContainer")
     .empty() //para borrar el contenido de globalContainer
     .append(`<div id="globalContainer_dash" class="row"></div>`);
@@ -146,6 +173,19 @@ $("#mostrarCards").on("click", () => {
 
 $(document).ready(function () {
   $("#mostrarEmpleados, #mostrarLista").on("click", function () {
+    $("#banner")
+      .empty()
+      .prepend(
+        `<div id="bannerDashboard">
+          <div class="pt-4 pb-1">
+            <p class="fs-1">Empleados</p>
+          </div>
+        </div>`
+      );
+
+    //banner animation
+    $("#bannerDashboard").hide().slideDown(250); //agregar CSS;
+
     $("#globalContainer")
       .empty()
       .append(
