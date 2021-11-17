@@ -93,6 +93,10 @@ $("#getEmpleadoDB").click(() => {
 
 //AJAX & JQuery
 
+/* 
+DASHBOARD VIEW
+ */
+
 $("#dashboard").on("click", () => {
   $("#banner")
     .empty()
@@ -108,12 +112,14 @@ $("#dashboard").on("click", () => {
     .delay(100)
     .fadeIn(300);
 
+  //borro buttons en la view Dashboard
   $("#buttons").empty();
 
   $("#globalContainer")
     .empty() //para borrar el contenido de globalContainer
     .append(`<div id="globalContainer_dash" class="row"></div>`);
 
+  //aca comienza el API de openWeatherMap
   let clima =
     "https://api.openweathermap.org/data/2.5/weather?q=Buenos%20Aires&units=metric&appid=50a1e5e1973f426349dc3d7b8e08f97e&lang=sp";
 
@@ -125,8 +131,8 @@ $("#dashboard").on("click", () => {
       console.log(data.weather[0].main);
       console.log(data.weather[0].description);
 
+      //append al banner
       $("#bannerDashboard").append(`
-      
       <div class="">
         <div class="d-flex flex-row justify-content-center">
           <h2>${data.main.temp} C°</h2>
@@ -139,7 +145,9 @@ $("#dashboard").on("click", () => {
   });
 });
 
-//Mostrar empleados JQuery sidebar y boton
+/* 
+EMPLEADOS VIEW
+ */
 
 $(document).ready(function () {
   //Mostrar empleados
