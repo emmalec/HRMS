@@ -39,8 +39,8 @@
           </div>
         </nav>
         <div id="winRContainer" class="winRContainer col-lg">
-          <div id="banner">
-          </div>
+          <div id="banner"></div>
+          <div id="buttons"></div>
           <!-- Bootstrap toast -->
           <!-- <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -56,8 +56,7 @@
             </div>
           </div> -->
           <div class="modalContainer">
-            <button id="mostrarLista" type="button" class="btn btn-primary">Mostrar lista</button>
-            <button id="mostrarCards" type="button" class="btn btn-primary">Mostrar cards</button>
+            
             <!-- Modal empleado nuevo-->
             <div class="modal fade" id="modalNewEmpleado" tabindex="-1" aria-labelledby="modalNewEmpleadoLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -118,7 +117,7 @@
                     <h5 class="modal-title" id="modalConfigLabel"><span>&#x2699;</span>Configuración</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body d-flex flex-column justify-content-center">
+                  <div class="modal-body d-flex justify-content-around">
                     <button id="clrLocalStorage" type="button" class="btn btn-danger my-3">Borrar localStorage</button>
                     <button id="getEmpleadoDB" type="button" class="btn btn-primary my-3">Importar empleados</button>
                   </div>
