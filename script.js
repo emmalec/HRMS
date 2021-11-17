@@ -96,7 +96,7 @@ $("#dashboard").on("click", () => {
       <div class="card col-lg-4 shadow ms-4">
         <div class="card-body">
           <div class="card-title d-flex align-items-center">
-            <h6 class="text-capitalize"> El clima de hoy: ${data.weather[0].description}</h6>
+            <h6 class="text-capitalize"> El clima de hoy: <b>${data.weather[0].description}</b></h6>
           </div>
           <div class="d-flex align-items-center">
             <h2>${data.main.temp} C°</h2>
