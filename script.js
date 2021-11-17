@@ -97,12 +97,16 @@ $("#dashboard").on("click", () => {
   $("#banner")
     .empty()
     .prepend(
-      `<div id="bannerDashboard">
-      <div class="py-4">
-        <p class="fs-1">Dashboard</p>
+      `<div id="bannerDashboard" class="d-flex justify-content-between align-items-center">
+        <div class="pt-4">
+          <p class="fs-1">Dashboard</p>
+        </div>
       </div>
-    </div>`
-    );
+      <hr class="bg-secondary">`
+    )
+    .hide()
+    .delay(100)
+    .fadeIn(300);
 
   $("#buttons").empty();
 
@@ -121,21 +125,16 @@ $("#dashboard").on("click", () => {
       console.log(data.weather[0].main);
       console.log(data.weather[0].description);
 
-      $("#globalContainer_dash").append(`
-      <div class="card col-lg-4 shadow ms-4">
-        <div class="card-body">
-          <div class="card-title d-flex align-items-center">
-            <h6 class="text-capitalize"> El clima de hoy: <b>${data.weather[0].description}</b></h6>
-          </div>
-          <div class="d-flex align-items-center">
-            <h2>${data.main.temp} C°</h2>
-            <img id="wicon" src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather icon">
-            </div>
-          <p>Min: ${data.main.temp_min}</p>
-          <p>Max: ${data.main.temp_max}</p>
-          <h4>${data.name}</h4>
-        </div>
-      </div>`);
+      $("#bannerDashboard").append(`
+      
+      <div class="">
+        <div class="d-flex flex-row justify-content-center">
+          <h2>${data.main.temp} C°</h2>
+          <img id="wicon" src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather icon">
+        </div>  
+        <h4>${data.name}</h4>
+      </div>
+      `);
     },
   });
 });
@@ -148,7 +147,7 @@ $(document).ready(function () {
     $("#banner")
       .empty()
       .prepend(
-        `<div id="bannerDashboard">
+        `<div id="bannerDashboard" class="d-flex flex-row">
           <div class="pt-4 pb-1">
             <p class="fs-1">Empleados</p>
           </div>
@@ -158,11 +157,18 @@ $(document).ready(function () {
     //banner animation
     $("#bannerDashboard").hide().slideDown(250); //agregar CSS;
 
-    $("#buttons").empty().prepend(`
+    $("#buttons")
+      .empty()
+      .prepend(
+        `
     <div>
       <button id="mostrarLista" type="button" class="btn btn-primary">Mostrar lista</button>
       <button id="mostrarCards" type="button" class="btn btn-primary">Mostrar cards</button>
-    </div>`);
+    </div>`
+      )
+      .hide()
+      .fadeIn(700)
+      .delay(400);
 
     $("#globalContainer")
       .empty()
