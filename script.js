@@ -248,7 +248,7 @@ $(document).ready(function () {
     //Delete empleado Jquery
 
     function deleteEmpleado() {
-      let empleados = JSON.parse(localStorage.getItem("empleado"));
+      let empleados = getEmpleado();
 
       for (const empleado of empleados) {
         $(`#deleteEmpleado${empleado.id}`).on("click", function () {
@@ -267,20 +267,6 @@ $(document).ready(function () {
     deleteEmpleado();
   });
 });
-
-//toast
-function toastAlert() {
-  let toastLiveExample = document.getElementById("liveToast");
-  if (formularioEmpleado) {
-    formularioEmpleado.addEventListener("submit", function () {
-      var toast = new bootstrap.Toast(toastLiveExample);
-
-      toast.show();
-    });
-  }
-}
-
-toastAlert();
 
 //Clear el localStorage
 
