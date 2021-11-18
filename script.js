@@ -268,6 +268,20 @@ $(document).ready(function () {
   });
 });
 
+//toast
+function toastAlert() {
+  let toastLiveExample = document.getElementById("liveToast");
+  if (formularioEmpleado) {
+    formularioEmpleado.addEventListener("submit", function () {
+      var toast = new bootstrap.Toast(toastLiveExample);
+
+      toast.show();
+    });
+  }
+}
+
+toastAlert();
+
 //Clear el localStorage
 
 let clearStorageEmpleado = document.getElementById("clrLocalStorage");
