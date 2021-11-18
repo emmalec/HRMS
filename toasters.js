@@ -1,12 +1,11 @@
 //Notificacion base de datos
 $(document).ready(function () {
-  //get it if Status key found
+  //get it if getEmpleadoDB key is found
   if (sessionStorage.getItem("getEmpleadoDB")) {
     console.log("trajiste empleados!");
 
     $("#toastContainer").append(`
-      
-        <div class="toast fade show align-items-center" data-bs-autohide="true" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="toastDB" class="toast fade show align-items-center" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true">
           <div class="d-flex">
             <div class="toast-body">
               La base de datos de empleados ha sido importada.
@@ -16,6 +15,9 @@ $(document).ready(function () {
         </div>
     `);
     sessionStorage.clear();
-    toast.hide();
+    setTimeout(
+      () => $("#toastDB").attr("class", "toast fade hide align-items-center"),
+      6000
+    );
   }
 });
