@@ -151,7 +151,7 @@ EMPLEADOS VIEW
 
 $(document).ready(function () {
   //Mostrar empleados
-  $("#mostrarEmpleados, #mostrarLista").on("click", function () {
+  $("#mostrarEmpleados").on("click", function () {
     $("#banner")
       .empty()
       .prepend(
@@ -170,7 +170,6 @@ $(document).ready(function () {
       .prepend(
         `
     <div>
-      <button id="mostrarLista" type="button" class="btn btn-primary">Mostrar lista</button>
       <button id="mostrarCards" type="button" class="btn btn-primary">Mostrar cards</button>
     </div>`
       )
