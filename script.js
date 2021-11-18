@@ -89,6 +89,10 @@ $("#getEmpleadoDB").click(() => {
       localStorage.setItem("empleado", JSON.stringify(data));
     },
   });
+  //almacenamos el true en el session
+  sessionStorage.setItem("getEmpleadoDB", true);
+  //delay en el reload
+  setTimeout(() => location.reload(), 500);
 });
 
 //AJAX & JQuery
@@ -101,8 +105,8 @@ $("#dashboard").on("click", () => {
   $("#banner")
     .empty()
     .prepend(
-      `<div id="bannerDashboard" class="d-flex justify-content-between align-items-center">
-        <div class="pt-4">
+      `<div id="bannerDashboard" class="d-flex justify-content-between align-items-center pt-4">
+        <div>
           <p class="fs-1">Dashboard</p>
         </div>
       </div>
@@ -267,6 +271,29 @@ $(document).ready(function () {
     deleteEmpleado();
   });
 });
+
+//toast
+
+/* $(document).ready(function () {
+  //get it if Status key found
+  if (sessionStorage.getItem("getEmpleadoDB")) {
+    console.log("trajiste empleados!");
+
+    $("#toastContainer").append(`
+    
+      <div class="toast fade show align-items-center" data-bs-autohide="true" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            La base de datos de empleados ha sido importada.
+          </div>
+          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+  `);
+    sessionStorage.clear();
+    toast.hide();
+  }
+}); */
 
 //Clear el localStorage
 
