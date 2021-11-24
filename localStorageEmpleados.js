@@ -57,7 +57,7 @@ function storageEmpleado() {
 
 function getEmpleado() {
   //traigo el array desde el localStorage por la key "empleado"
-  let empleados = JSON.parse(localStorage.getItem("empleado"));
+  let empleados = JSON.parse(localStorage.getItem("empleado")) || [];
   //mapeo el array para convertiro a la class Empleado y poder usar metodos
   let empleadosMap = empleados.map(
     (empleado) =>
@@ -94,3 +94,14 @@ $("#getEmpleadoDB").click(() => {
   //delay en el reload
   setTimeout(() => location.reload(), 500);
 });
+
+//Clear el localStorage
+
+let clearStorageEmpleado = document.getElementById("clrLocalStorage");
+clearStorageEmpleado.addEventListener("click", clearStorage);
+
+function clearStorage() {
+  localStorage.clear("empleado");
+  sessionStorage.setItem("deleteEmpleadoDB", true);
+  setTimeout(() => location.reload(), 300);
+}

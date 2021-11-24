@@ -4,7 +4,7 @@
 DASHBOARD VIEW
  */
 
-$("#dashboard").on("click", () => {
+/* $("#dashboard").on("click", () => {
   $("#banner")
     .empty()
     .prepend(
@@ -50,13 +50,13 @@ $("#dashboard").on("click", () => {
       `);
     },
   });
-});
+}); */
 
 /* 
 EMPLEADOS VIEW
  */
 
-$(document).ready(function () {
+/* $(document).ready(function () {
   //Mostrar empleados
   $("#mostrarEmpleados").on("click", function () {
     $("#banner")
@@ -173,13 +173,13 @@ $(document).ready(function () {
     mostrarLista();
     deleteEmpleado();
   });
-});
+}); */
 
-//Clear el localStorage
+/* //Clear el localStorage
 
 let clearStorageEmpleado = document.getElementById("clrLocalStorage");
 clearStorageEmpleado.addEventListener("click", clearStorage);
 
 function clearStorage() {
   localStorage.clear("empleado");
-}
+} */

@@ -17,7 +17,7 @@ $(document).ready(function () {
     sessionStorage.clear();
     setTimeout(
       () => $("#toastDB").attr("class", "toast fade hide align-items-center"),
-      6000
+      5000
     );
   }
 });
