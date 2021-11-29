@@ -22,7 +22,7 @@
   color: blue !important;
 }
 
-/* Style overrider de bootstrap form width y que los labels me queden bien */
+/* Style overrider de bootstrap form width y que los labels del form me queden bien */
 .input-group .form-control {
   width: auto !important;
 }

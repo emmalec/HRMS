@@ -112,7 +112,9 @@ $(document).ready(function () {
           //update del localStorage
           localStorage.setItem("empleado", JSON.stringify(empleados));
           //para refresh
-          location.reload();
+          //location.reload();
+          //para cerrar el tr
+          $(this).closest("tr").fadeOut(350);
         });
       }
     }

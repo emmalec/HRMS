@@ -14,19 +14,24 @@ $(document).ready(function () {
           <hr class="bg-secondary">`
       )
       .hide()
-      .delay(100)
-      .fadeIn(300);
+      .slideDown(370);
 
     //borro buttons en la view Dashboard
     $("#buttons").empty();
 
-    $("#globalContainer").empty() //para borrar el contenido de globalContainer
-      .append(`<div id="globalContainer_dash" class="row">
+    $("#globalContainer")
+      .empty() //para borrar el contenido de globalContainer
+      .append(
+        `<div id="globalContainer_dash" class="row">
                 <div class="col-6 card shadow ms-3">
                   <h3 class="card-title py-3">Bienvenido a <span class="titleLucida"> Human Resources Managment System</span></h3>
                   <p>Como verás el simulador se encuentra vacio, podés importar una base de datos de empleados desde la pestaña <span>&#x2699;</span> Configuración - Importar empleados </p>
                 </div>    
-              </div>`);
+              </div>`
+      )
+      .hide()
+      .fadeIn(800)
+      .delay(500);
 
     //aca comienza el API de openWeatherMap
     let clima =
