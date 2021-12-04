@@ -83,7 +83,7 @@ $("#getEmpleadoDB").click(() => {
   $.ajax({
     type: "GET",
     dataType: "json",
-    url: "empleados.json",
+    url: "js/empleados.json",
     success: function (data) {
       console.log("funciona funcion axaj DB");
       localStorage.setItem("empleado", JSON.stringify(data));

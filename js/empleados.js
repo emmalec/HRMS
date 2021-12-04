@@ -4,7 +4,7 @@ EMPLEADOS VIEW
 
 $(document).ready(function () {
   //Mostrar empleados
-  $("#mostrarEmpleados").on("click", function () {
+  $(".mostrarEmpleados").on("click", function () {
     $("#banner")
       .empty()
       .prepend(
@@ -16,15 +16,14 @@ $(document).ready(function () {
       );
 
     //banner animation
-    $("#bannerDashboard").hide().slideDown(250); //agregar CSS;
+    $("#bannerDashboard").hide().slideDown(250);
 
     $("#buttons")
       .empty()
       .prepend(
         `
-      <div>
-        <button id="mostrarCards" type="button" class="btn btn-primary">Mostrar cards</button>
-      </div>`
+      <button id="mostrarCards" type="button" class="btn btn-primary">Mostrar cards</button>
+      `
       )
       .hide()
       .fadeIn(700)
@@ -44,7 +43,7 @@ $(document).ready(function () {
         <th>Antiguedad</th>
         <th>e-mail</th>
         <th>Sueldo Basico</th>
-        <th>Delete</th></thead>`);
+        <th>Eliminar</th></thead>`);
 
     function mostrarLista() {
       let empleadosTable = getEmpleado();
@@ -60,7 +59,7 @@ $(document).ready(function () {
             <td>${antiguedadEmpleado} años</td>
             <td>${empleado.email}</td>
             <td>${empleado.sueldoBasico}</td>
-            <td><button type="button" id="deleteEmpleado${empleado.id}" class="btn btn-danger deleteEmpleado">Delete<i class="far fa-trash-alt"></i></button>
+            <td><button type="button" id="deleteEmpleado${empleado.id}" class="btn btn-outline-danger deleteEmpleado"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"></path></svg></button>
             </td></tr>`);
       }
     }
@@ -68,6 +67,17 @@ $(document).ready(function () {
     //Mostrar cards
 
     $("#mostrarCards").on("click", () => {
+      $("#buttons")
+        .empty()
+        .prepend(
+          `
+        <button type="button" class="mostrarEmpleados btn btn-primary">Mostrar Lista</button>
+      `
+        )
+        .hide()
+        .fadeIn(700)
+        .delay(400);
+
       let empleadosCard = getEmpleado();
 
       $("#globalContainer")
