@@ -8,7 +8,7 @@ $(document).ready(function () {
       .prepend(
         `<div id="bannerDashboard" class="d-flex justify-content-between align-items-center pt-4">
             <div>
-              <p class="fs-1">Dashboard</p>
+              <p class="fs-1"><span>&#127968;</span> Dashboard</p>
             </div>
           </div>
           <hr class="bg-secondary">`
@@ -55,21 +55,20 @@ $(document).ready(function () {
       method: "GET",
       url: clima,
       success: function (data) {
-        console.log(data.main.temp);
-        console.log(data.weather[0].main);
-        console.log(data.weather[0].description);
-
         //append al banner
-        $("#bannerDashboard").append(`
-        <div class="titleLucida">
+        $("#bannerDashboard").append(
+          `
+        <div class="titleLucida mb-0">
           <h2 class="mb-0">${hora}</h2>
+          <hr class="my-1">
+          <h6 class="mb-0 text-black-50">${data.name}</h6>
           <div class="d-flex flex-row justify-content-center mb-0">
-            <h2>${data.main.temp} C°</h2>
+            <h3 class="mb-0">${data.main.temp} C°</h3>
             <img id="wicon" src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather icon">
           </div>  
-            <h4>${data.name}</h4>
         </div>
-          `);
+          `
+        );
       },
     });
   });
