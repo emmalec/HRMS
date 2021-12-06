@@ -1,3 +1,7 @@
+/* 
+EMPLEADOS LOCALSTORAGE GET SET
+ */
+
 //Class Empleado con metodo constructor
 class Empleado {
   constructor(

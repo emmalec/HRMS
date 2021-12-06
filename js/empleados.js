@@ -4,7 +4,7 @@ EMPLEADOS VIEW
 
 $(document).ready(function () {
   //Mostrar empleados
-  $(".mostrarEmpleados").on("click", function () {
+  $("#mostrarEmpleados").on("click", function () {
     $("#banner")
       .empty()
       .prepend(
@@ -108,7 +108,7 @@ $(document).ready(function () {
         $(`#deleteEmpleado${empleado.id}`).on("click", function () {
           //buscamos el index del array mediante el id de empleado
           index = empleados.findIndex((x) => x.id === empleado.id);
-          //eliminamos el value asicoado al id
+          //eliminamos el value asociado al id
           empleados.splice(index, 1);
           //update del localStorage
           localStorage.setItem("empleado", JSON.stringify(empleados));

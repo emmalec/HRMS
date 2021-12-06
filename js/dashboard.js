@@ -37,7 +37,6 @@ $(document).ready(function () {
               </div>`
       )
       .hide()
-
       .fadeIn(800)
       .delay(500);
 

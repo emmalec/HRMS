@@ -1,6 +1,9 @@
-//Notificacion base de datos
+/* 
+TOASTERS
+ */
+
 $(document).ready(function () {
-  //get it if getEmpleadoDB key is found
+  //traer si encuentra true en session
   if (sessionStorage.getItem("getEmpleadoDB")) {
     $("#toastContainer").append(`
         <div id="toastDB" class="toast fade show align-items-center bg-success bg-gradient text-white" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true">
@@ -12,6 +15,7 @@ $(document).ready(function () {
           </div>
         </div>
     `);
+    //session storage clear para eliminar el true
     sessionStorage.clear();
     setTimeout(
       () => $("#toastDB").attr("class", "toast fade hide align-items-center"),
