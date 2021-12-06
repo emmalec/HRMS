@@ -62,9 +62,9 @@ $(document).ready(function () {
           <h2 class="mb-0">${hora}</h2>
           <hr class="my-1">
           <h6 class="mb-0 text-black-50">${data.name}</h6>
-          <div class="d-flex flex-row justify-content-center mb-0">
-            <h3 class="mb-0">${data.main.temp} C°</h3>
-            <img id="wicon" src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather icon">
+          <div class="d-flex flex-row align-items-center mb-0">
+          <h3 class="mb-0">${data.main.temp} C°</h3>
+          <img id="wicon" src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather icon">
           </div>  
         </div>
           `
