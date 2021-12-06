@@ -50,7 +50,10 @@ function storageEmpleado() {
   );
   //setea el objeto creado con el key "empleado" dentro del array "empleados"
   localStorage.setItem("empleado", JSON.stringify(empleados));
+  //session storage para toaster
   sessionStorage.setItem("newEmpleado", true);
+  //location reload
+  setTimeout(() => location.reload(), 500);
 }
 
 //GET EMPLEADO LOCALSTORAGE & MAP TO CLASS Empleado

@@ -23,9 +23,16 @@ $(document).ready(function () {
       .empty() //para borrar el contenido de globalContainer
       .append(
         `<div id="globalContainer_dash" class="row">
-                <div class="col-6 card shadow ms-3">
+                <div class="col-10 card shadow ms-3">
                   <h3 class="card-title py-3">Bienvenido a <span class="titleLucida"> Human Resources Managment System</span></h3>
-                  <p>Como verás el simulador se encuentra vacio, podés importar una base de datos de empleados desde la pestaña <span>&#x2699;</span> Configuración - Importar empleados </p>
+                    <p>Como verás el simulador se encuentra vacío, y tenemos varias opciones:<p>
+                    <div>
+                      <p>Podés importar una base de datos de empleados desde la pestaña <span>&#x2699;</span><b class="text-success">Configuración - Importar empleados.</b></p>
+                      <p>Tambien podés eliminar la base de datos de empleados desde la pestaña <span>&#x2699;</span><b class="text-danger">Configuración - Borrar base de datos.</b></p>
+                      <p>Para agregar un nuevo colaborador al sim usá el botón <b>+ Nuevo Colaborador.</b></p>
+                      <p>En la pestaña <span>&#x1F477;</span> <b>Empleados</b> puedes visualizar los colaboradores cargados e importados.</p>
+                      <p>Espero que lo disfrutes &#128512</p>
+                    </div>
                 </div>    
               </div>`
       )
@@ -33,6 +40,13 @@ $(document).ready(function () {
 
       .fadeIn(800)
       .delay(500);
+
+    //reloj
+    let date = new Date();
+    let hrs = date.getHours();
+    let mins = date.getMinutes();
+    mins = mins < 10 ? `0${mins}` : mins;
+    let hora = `${hrs}:${mins}`;
 
     //aca comienza el API de openWeatherMap
     let clima =
@@ -48,13 +62,14 @@ $(document).ready(function () {
 
         //append al banner
         $("#bannerDashboard").append(`
-          <div class="">
-            <div class="d-flex flex-row justify-content-center">
-              <h2>${data.main.temp} C°</h2>
-              <img id="wicon" src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather icon">
-            </div>  
+        <div class="titleLucida">
+          <h2 class="mb-0">${hora}</h2>
+          <div class="d-flex flex-row justify-content-center mb-0">
+            <h2>${data.main.temp} C°</h2>
+            <img id="wicon" src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="Weather icon">
+          </div>  
             <h4>${data.name}</h4>
-          </div>
+        </div>
           `);
       },
     });

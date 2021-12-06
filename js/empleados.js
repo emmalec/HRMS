@@ -67,16 +67,7 @@ $(document).ready(function () {
     //Mostrar cards
 
     $("#mostrarCards").on("click", () => {
-      $("#buttons")
-        .empty()
-        .prepend(
-          `
-        <button type="button" class="mostrarEmpleados btn btn-primary">Mostrar Lista</button>
-      `
-        )
-        .hide()
-        .fadeIn(700)
-        .delay(400);
+      $("#buttons").empty();
 
       let empleadosCard = getEmpleado();
 
@@ -93,7 +84,7 @@ $(document).ready(function () {
             <div class="card">
               <img src="https://media.istockphoto.com/vectors/missing-image-of-a-person-placeholder-vector-id1288129985?k=20&m=1288129985&s=612x612&w=0&h=OHfZHfKj0oqIDMl5f_oRqH13MHiB63nUmySYILbWbjE=" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">${empleado.nombre} ${empleado.apellido}</h5>
+                <h5 class="card-title">${empleado.nombre} ${empleado.apellido} <span class="text-muted">| ${empleado.id}</span></h5>
                 <p class="card-text mb-0"> Edad: ${edadEmpleado} años</p>
                 <p class="card-text mb-0"> Antiguedad: ${antiguedadEmpleado} años</p>
               </div>
@@ -121,8 +112,6 @@ $(document).ready(function () {
           empleados.splice(index, 1);
           //update del localStorage
           localStorage.setItem("empleado", JSON.stringify(empleados));
-          //para refresh
-          //location.reload();
           //para cerrar el tr
           $(this).closest("tr").fadeOut(350);
         });
