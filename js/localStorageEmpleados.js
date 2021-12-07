@@ -1,5 +1,5 @@
 /* 
-EMPLEADOS LOCALSTORAGE GET SET
+EMPLEADOS LOCALSTORAGE
  */
 
 //Class Empleado con metodo constructor

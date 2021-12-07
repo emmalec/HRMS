@@ -1,5 +1,5 @@
 /* 
-EMPLEADOS VIEW
+EMPLEADOS VIEW DOM
  */
 
 $(document).ready(function () {

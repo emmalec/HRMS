@@ -1,5 +1,5 @@
 /* 
-DASHBOARD VIEW
+DASHBOARD VIEW DOM
  */
 $(document).ready(function () {
   $("#dashboard").on("click", () => {
