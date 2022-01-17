@@ -1,6 +1,6 @@
 /* 
 TOASTERS
- 
+*/
 
 $(document).ready(function () {
   //traer si encuentra true en session
@@ -59,4 +59,3 @@ $(document).ready(function () {
     );
   }
 });
-*/

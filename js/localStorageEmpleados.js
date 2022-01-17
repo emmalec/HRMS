@@ -99,7 +99,7 @@ $("#getEmpleadoDB").click(() => {
   //almacenamos el true en el session
   sessionStorage.setItem("getEmpleadoDB", true);
   //delay en el reload
-  //setTimeout(() => location.reload(), 500);
+  setTimeout(() => location.reload(), 500);
 });
 
 //Clear el localStorage
